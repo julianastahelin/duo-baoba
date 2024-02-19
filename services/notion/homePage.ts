@@ -8,7 +8,7 @@ import { HomePageDatabases } from './databases'
 export async function getHomePage() {
     const header = await getHomeHeader()
     const homeSections = await getHomeSections()
-    const socialMedias = await  getSocialMedias()
+    const socialMedias = await getSocialMedias()
 
     return { header, homeSections, socialMedias }
 }
