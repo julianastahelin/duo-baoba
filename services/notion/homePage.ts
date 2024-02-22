@@ -1,27 +1,23 @@
 import { HomeHeaderImages, HomeHeaderText, HomeSections, SocialMedias } from '@/types/api'
-import { fetchAndConvertToMarkdown } from '@/utils/api'
+import { filterPublished, getApiData, sortByOrder } from '@/utils/api'
 
-import { notionClient } from '.'
 import { HomePageDatabases } from './databases'
 
 
 export async function getHomePage() {
-    const header = await getHomeHeader()
     const homeSections = await getHomeSections()
     const socialMedias = await getSocialMedias()
 
-    return { header, homeSections, socialMedias }
+    return { homeSections, socialMedias }
 }
 
 export async function getHomeHeader() {
-    const textResponse = await notionClient.databases.query({
-        database_id: HomePageDatabases['headerText']
-    })
+    const TEXT_DATABASE_ID = HomePageDatabases['headerText']
+    const textResponse = await getApiData(TEXT_DATABASE_ID)
     const typedHomeHeader = textResponse as unknown as HomeHeaderText.ApiResponse
 
-    const imagesResponse = await notionClient.databases.query({
-        database_id: HomePageDatabases['headerImages']
-    })
+    const IMAGES_DATABASE_ID = HomePageDatabases['headerImages']
+    const imagesResponse = await getApiData(IMAGES_DATABASE_ID)
     const typedImages = imagesResponse as unknown as HomeHeaderImages.ApiResponse
 
     return {
@@ -40,25 +36,22 @@ export async function getHomeHeader() {
 }
 
 export async function getHomeSections() {
-    const response = await notionClient.databases.query({
-        database_id: HomePageDatabases['homeSections']
-    })
+    const DATABASE_ID =  HomePageDatabases['homeSections']
+    const response = await getApiData(DATABASE_ID, filterPublished, sortByOrder)
     const typedHomeSections = response as unknown as HomeSections.ApiResponse
-    return await Promise.all(typedHomeSections.results.map(async (result) => {
-        const content = await fetchAndConvertToMarkdown(result.id)
 
+    return typedHomeSections.results.map((result) => {
         return {
             title: result.properties.title.title[0].plain_text,
             image: result.properties.image.files[0]?.file?.url,
-            content: content
+            content: result.properties.content.rich_text[0].plain_text,
         }
-    }))
+    })
 }
 
 export async function getSocialMedias() {
-    const response = await notionClient.databases.query({
-        database_id: HomePageDatabases['socialMedias']
-    })
+    const DATABASE_ID =  HomePageDatabases['socialMedias']
+    const response = await getApiData(DATABASE_ID, filterPublished, sortByOrder)
     const typedSocialMedias = response as unknown as SocialMedias.ApiResponse
 
     return typedSocialMedias.results.map((result) => {
