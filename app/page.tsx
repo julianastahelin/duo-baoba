@@ -1,26 +1,28 @@
+import Image  from 'next/image'
+
 import StyledMarkdown from '@/components/styledMarkdown'
 import { getHomePage } from '@/services/notion'
 
 
 export default async function Home() {
-  const { header, homeSections, socialMedias } = await getHomePage()
+  const { homeSections, socialMedias } = await getHomePage()
 
   return (
     <main>
       <section className='flex justify-between items-end w-full h-screen'>
-        <img src={header.images.find(person => person.name === 'Mayara')?.image} className='w-80' />
+        <Image src='/assets/img/mayara-home.png' className='w-80' width={300} height={500} alt='Profile picture of Mayara' />
         <div className='flex flex-col gap-2 h-full justify-center'>
           <h1 className='flex flex-col gap-2 items-center'>
             <span>
-              {header.text.title.split(' ')[0]}
+              Duo
             </span>
             <span className='font-extrabold text-3xl'>
-              {header.text.title.split(' ')[1]}
+              Baobá
             </span>
           </h1>
-          <p className='flex gap-2'>· {header.text.tags.map((tag, index) => <span key={tag + index}> {tag} ·</span>)}</p>
+          <p className='flex gap-2'>· Flauta · Violão ·</p>
         </div>
-        <img src={header.images.find(person => person.name === 'David')?.image} className='w-80' />
+        <Image src='/assets/img/david-home.png' className='w-80' width={300} height={500} alt='Profile picture of David' />
       </section>
       <section className='flex flex-col items-center justify-center p-20 gap-6 text-center'>
         {
@@ -35,7 +37,7 @@ export default async function Home() {
                     : ''
                 }
               </div>
-            ) 
+            )
           })
         }
       </section>
