@@ -1,7 +1,6 @@
 import { AcademicEducation, AdditionalEducation, Profile, Work } from '@/types/api'
-import { fetchAndConvertToMarkdown } from '@/utils/api'
+import { filterPublished, getApiData, sortByOrder } from '@/utils/api'
 
-import { notionClient } from '.'
 import { PersonalDatabaseKeys, personalDatabases } from './databases'
 
 
@@ -22,9 +21,7 @@ function getDatabaseId(person: string, database: PersonalDatabaseKeys) {
 
 export async function getProfile(person: string) {
     const DATABASE_ID = getDatabaseId(person, 'profile')
-    const response = await notionClient.databases.query({
-        database_id: DATABASE_ID as string
-    })
+    const response = await getApiData(DATABASE_ID as string)
     const typedProfile = response as unknown as Profile.ApiResponse
 
     return {
@@ -36,9 +33,7 @@ export async function getProfile(person: string) {
 
 export async function getAcademicEducation(person: string) {
     const DATABASE_ID = getDatabaseId(person, 'academicEducation')
-    const response = await notionClient.databases.query({
-        database_id: DATABASE_ID as string
-    })
+    const response = await getApiData(DATABASE_ID as string, filterPublished, sortByOrder)
     const typedEducation = response as unknown as AcademicEducation.ApiResponse
 
     return typedEducation.results.map((result) => {
@@ -46,43 +41,34 @@ export async function getAcademicEducation(person: string) {
             title: result.properties.title.title[0].plain_text,
             description: result.properties.description.rich_text[0].plain_text,
             period: result.properties.period.rich_text[0].plain_text,
-            publish: result.properties.enabled.checkbox
         }
     })
 }
 
 export async function getAdditionalEducation(person: string) {
     const DATABASE_ID = getDatabaseId(person, 'additionalEducation')
-    const response = await notionClient.databases.query({
-        database_id: DATABASE_ID as string
-    })
+    const response = await getApiData(DATABASE_ID as string, filterPublished, sortByOrder)
     const typedAdditionalEducation = response as unknown as AdditionalEducation.ApiResponse
 
-    return await Promise.all(typedAdditionalEducation.results.map(async (result) => {
-        const content = await fetchAndConvertToMarkdown(result.id)
-
+    return typedAdditionalEducation.results.map((result) => {
         return {
             title: result.properties.title.title[0].plain_text,
-            content: content
+            content: result.properties.content.rich_text[0].plain_text
         }
-    }))
+    })
 }
 
 export async function getWorks(person: string) {
     const DATABASE_ID = getDatabaseId(person, 'work')
-    const response = await notionClient.databases.query({
-        database_id: DATABASE_ID as string
-    })
+    const response = await getApiData(DATABASE_ID as string, filterPublished, sortByOrder)
     const typedWorks = response as unknown as Work.ApiResponse
 
-    return await Promise.all(typedWorks.results.map(async (result) => {
-        const content = await fetchAndConvertToMarkdown(result.id)
-
+    return typedWorks.results.map((result) => {
         return {
             title: result.properties.title.title[0].plain_text,
             image: result.properties.cover.files[0].file?.url,
             imageCredit: result.properties.imageCredit.rich_text[0].plain_text,
-            content: content
+            content: result.properties.content.rich_text[0].plain_text
         }
-    }))
+    })
 }

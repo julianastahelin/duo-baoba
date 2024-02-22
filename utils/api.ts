@@ -1,9 +1,27 @@
-import { notionToMarkdown } from '@/services/notion'
+import { notionClient } from '@/services/notion'
 
 
-export async function fetchAndConvertToMarkdown(id: string) {
-    const mdblocks = await notionToMarkdown.pageToMarkdown(id)
-    const mdString = notionToMarkdown.toMarkdownString(mdblocks)
+export const filterPublished = {
+    property: 'status',
+    select: {
+        equals: 'Publicar',
+    }
+}
 
-    return mdString.parent
+interface sortByOrder {
+    property: string
+    direction: 'ascending' | 'descending'
+}
+
+export const sortByOrder: sortByOrder = {
+    property: 'order',
+    direction: 'ascending'
+}
+
+export async function getApiData(DATABASE_ID: string, filter?:any, sorts?:any) {
+    return await notionClient.databases.query({
+        database_id: DATABASE_ID,
+        filter: filter ? filter : undefined,
+        sorts: sorts ? [ sorts ] : []
+    })
 }
