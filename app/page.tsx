@@ -1,4 +1,5 @@
-import Image  from 'next/image'
+import Image from 'next/image'
+import { Suspense } from 'react'
 
 import StyledMarkdown from '@/components/styledMarkdown'
 import { getHomePage } from '@/services/notion'
@@ -31,10 +32,17 @@ export default async function Home() {
               <div key={section.title + index}>
                 <h2 className='text-2xl font-bold'>{section.title}</h2>
                 <StyledMarkdown markdown={section.content} />
-                {
-                  section.image
-                    ? <img src={section.image} alt='Image' className='w-80' />
-                    : ''
+                {section.media
+                  ? section.media.includes('youtube')
+                    ? <Suspense fallback={<p>Carregando vídeo...</p>}>
+                      <iframe
+                        src={section.media}
+                        allowFullScreen
+                        loading="lazy"
+                      />
+                    </Suspense>
+                    : <Image src={`/assets/img/${section.media}`} alt='Work image' height={300} width={500} />
+                  : ''
                 }
               </div>
             )

@@ -48,18 +48,7 @@ export interface Properties {
 export interface Picture {
   id: string
   type: string
-  files: File[]
-}
-
-export interface File {
-  name: string
-  type: string
-  file: File2
-}
-
-export interface File2 {
   url: string
-  expiry_time: string
 }
 
 export interface Tags {

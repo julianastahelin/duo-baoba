@@ -1,5 +1,5 @@
 import { AcademicEducation, AdditionalEducation, Profile, Work } from '@/types/api'
-import { filterPublished, getApiData, sortByOrder } from '@/utils/api'
+import { checkAndConvertYoutubeWatchToEmbed, filterPublished, getApiData, sortByOrder } from '@/utils/api'
 
 import { PersonalDatabaseKeys, personalDatabases } from './databases'
 
@@ -27,7 +27,7 @@ export async function getProfile(person: string) {
     return {
         name: typedProfile.results[0].properties.name.title[0].text.content,
         tags: typedProfile.results[0].properties.tags.multi_select.map((tag) => tag.name),
-        picture: typedProfile.results[0].properties.picture.files[0].file.url
+        picture: typedProfile.results[0].properties.picture.url
     }
 }
 
@@ -66,8 +66,10 @@ export async function getWorks(person: string) {
     return typedWorks.results.map((result) => {
         return {
             title: result.properties.title.title[0].plain_text,
-            image: result.properties.cover.files[0].file?.url,
-            imageCredit: result.properties.imageCredit.rich_text[0].plain_text,
+            media: checkAndConvertYoutubeWatchToEmbed(result.properties.media.url as string),
+            imageCredit: result.properties.imageCredit.rich_text.length
+                ? result.properties.imageCredit.rich_text[0].plain_text
+                : undefined,
             content: result.properties.content.rich_text[0].plain_text
         }
     })
