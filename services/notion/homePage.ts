@@ -38,7 +38,6 @@ export async function getHomeHeader() {
 export async function getHomeSections() {
     const DATABASE_ID = HomePageDatabases['homeSections']
     const response = await getApiData(DATABASE_ID, filterPublished, sortByOrder)
-    console.log(response)
     const typedHomeSections = response as unknown as HomeSections.ApiResponse
 
     return typedHomeSections.results.map((result) => {

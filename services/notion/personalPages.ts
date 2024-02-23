@@ -23,11 +23,12 @@ export async function getProfile(person: string) {
     const DATABASE_ID = getDatabaseId(person, 'profile')
     const response = await getApiData(DATABASE_ID as string)
     const typedProfile = response as unknown as Profile.ApiResponse
+    const validProfile = typedProfile.results.filter(result => result.properties.name.title.length)
 
     return {
-        name: typedProfile.results[0].properties.name.title[0].text.content,
-        tags: typedProfile.results[0].properties.tags.multi_select.map((tag) => tag.name),
-        picture: typedProfile.results[0].properties.picture.url
+        name: validProfile[0].properties.name.title[0].text.content,
+        tags: validProfile[0].properties.tags.multi_select.map((tag) => tag.name),
+        picture: validProfile[0].properties.picture.url
     }
 }
 
