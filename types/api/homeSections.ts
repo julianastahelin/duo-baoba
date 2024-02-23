@@ -40,33 +40,17 @@ export interface Parent {
 }
 
 export interface Properties {
-  image: Image
+  media: Media
   order: Order
   content: Content
   status: Status
   title: Title
 }
 
-export interface Image {
+export interface Media {
   id: string
   type: string
-  files: File[]
-}
-
-export interface File {
-  name: string
-  type: string
-  file?: File2
-  external?: External
-}
-
-export interface File2 {
-  url: string
-  expiry_time: string
-}
-
-export interface External {
-  url: string
+  url?: string
 }
 
 export interface Order {

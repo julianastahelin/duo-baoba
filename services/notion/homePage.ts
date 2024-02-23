@@ -1,5 +1,5 @@
 import { HomeHeaderImages, HomeHeaderText, HomeSections, SocialMedias } from '@/types/api'
-import { filterPublished, getApiData, sortByOrder } from '@/utils/api'
+import { checkAndConvertYoutubeWatchToEmbed, filterPublished, getApiData, sortByOrder } from '@/utils/api'
 
 import { HomePageDatabases } from './databases'
 
@@ -36,21 +36,24 @@ export async function getHomeHeader() {
 }
 
 export async function getHomeSections() {
-    const DATABASE_ID =  HomePageDatabases['homeSections']
+    const DATABASE_ID = HomePageDatabases['homeSections']
     const response = await getApiData(DATABASE_ID, filterPublished, sortByOrder)
+    console.log(response)
     const typedHomeSections = response as unknown as HomeSections.ApiResponse
 
     return typedHomeSections.results.map((result) => {
         return {
             title: result.properties.title.title[0].plain_text,
-            image: result.properties.image.files[0]?.file?.url,
+            media: result.properties.media.url
+                ? checkAndConvertYoutubeWatchToEmbed(result.properties.media.url)
+                : undefined,
             content: result.properties.content.rich_text[0].plain_text,
         }
     })
 }
 
 export async function getSocialMedias() {
-    const DATABASE_ID =  HomePageDatabases['socialMedias']
+    const DATABASE_ID = HomePageDatabases['socialMedias']
     const response = await getApiData(DATABASE_ID, filterPublished, sortByOrder)
     const typedSocialMedias = response as unknown as SocialMedias.ApiResponse
 

@@ -43,7 +43,7 @@ export interface Properties {
   content: Content
   status: Status
   imageCredit: ImageCredit
-  cover: Cover
+  media: Media
   order: Order
   title: Title
 }
@@ -116,25 +116,9 @@ export interface Annotations2 {
   color: string
 }
 
-export interface Cover {
+export interface Media {
   id: string
   type: string
-  files: File[]
-}
-
-export interface File {
-  name: string
-  type: string
-  file?: File2
-  external?: External
-}
-
-export interface File2 {
-  url: string
-  expiry_time: string
-}
-
-export interface External {
   url: string
 }
 

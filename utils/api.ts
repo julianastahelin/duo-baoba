@@ -25,3 +25,8 @@ export async function getApiData(DATABASE_ID: string, filter?:any, sorts?:any) {
         sorts: sorts ? [ sorts ] : []
     })
 }
+
+export function checkAndConvertYoutubeWatchToEmbed(link: string) {
+    if (link.includes('youtube')) return link.replace('watch?v=', 'embed/')
+    else return link
+}

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 import StyledMarkdown from '@/components/styledMarkdown'
 import { getPersonalPage } from '@/services/notion'
@@ -13,7 +14,7 @@ export default async function About({
 
     return (
         <section className='flex flex-col items-center justify-center p-10'>
-            <Image src={profile.picture} height={400} width={700} alt='profile picture' />
+            <Image src={`/assets/img/${profile.picture}`} height={400} width={700} alt='profile picture' />
             <div className='flex flex-col items-center p-4'>
                 <h1 className='text-2xl font-bold'>{profile.name}</h1>
                 <p>· {profile.tags.join(' · ')} ·</p>
@@ -50,8 +51,20 @@ export default async function About({
                     return (
                         <div key={work.title + index} className='p-4'>
                             <p><span className='font-bold'>{work.title}</span></p>
-                            <Image src={work.image as string} alt='Work image' height={300} width={500} />
-                            <span>Foto: {work.imageCredit}</span>
+                            {work.media?.includes('youtube')
+                                ? <Suspense fallback={<p>Carregando vídeo...</p>}>
+                                    <iframe
+                                        src={work.media}
+                                        allowFullScreen
+                                        loading="lazy"
+                                    />
+                                </Suspense>
+                                : <Image src={`/assets/img/${work.media}`} alt='Work image' height={300} width={500} />
+                            }
+                            {work.imageCredit
+                                ? <span>Foto: {work.imageCredit}</span>
+                                : ''
+                            }
                             <StyledMarkdown markdown={work.content} />
                         </div>
                     )
