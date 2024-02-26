@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --background-primary: linear-gradient(to bottom, #DA9D00, #FEFDFA);
+        --background-secondary: linear-gradient(to bottom, rgba(53, 27, 16, 0.02), rgba(53, 27, 16, 0.9));
+        --background-tertiary: #FAF1DB;
+
+        --foreground-primary: #6E0707;
+        --foreground-secondary: #FFFFFF;
+    }
+}
