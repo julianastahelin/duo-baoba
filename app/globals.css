@@ -11,5 +11,7 @@
     --foreground-primary: #6E0707;
     --foreground-secondary: #FDECCD;
     --foreground-tertiary: #FFFFFF;
+
+    --tw-shadow-color: rgba(0, 0, 0, 0.5);
   }
 }
