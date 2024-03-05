@@ -9,8 +9,8 @@ const nextConfig = {
                 pathname: '/**'
             },
         ]
-    }
-
+    },
+    transpilePackages: ['lucide-react'],
 };
 
 export default nextConfig;
