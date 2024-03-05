@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --background-primary: linear-gradient(to bottom, #DFD6BF, #F5EDD9);
-        --background-secondary: linear-gradient(to bottom, rgba(53, 27, 16, 0.02), rgba(53, 27, 16, 0.9));
-        --background-tertiary: #FAF1DB;
+  :root {
+    --background-primary: linear-gradient(to bottom, #DFD6BF, #F5EDD9);
+    --background-secondary: linear-gradient(to bottom, rgba(53, 27, 16, 0.02), rgba(53, 27, 16, 0.9));
+    --background-tertiary: #FAF1DB;
 
-        --foreground-primary: #6E0707;
-        --foreground-secondary: #FDECCD;
-        --foreground-tertiary: #FFFFFF;
-    }
+    --foreground-primary: #6E0707;
+    --foreground-secondary: #FDECCD;
+    --foreground-tertiary: #FFFFFF;
+  }
 }
