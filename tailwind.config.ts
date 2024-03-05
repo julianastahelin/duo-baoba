@@ -18,6 +18,7 @@ const config: Config = {
         },
         tertiary: {
           DEFAULT: 'var(--background-tertiary)',
+          foreground: 'var(--foreground-tertiary)',
         }
       },
       backgroundImage: {
