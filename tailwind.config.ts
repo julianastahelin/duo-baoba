@@ -19,6 +19,9 @@ const config: Config = {
         tertiary: {
           DEFAULT: 'var(--background-tertiary)',
           foreground: 'var(--foreground-tertiary)',
+        },
+        quaternary: {
+          DEFAULT: 'var(--background-quaternary)',
         }
       },
       backgroundImage: {
@@ -28,6 +31,9 @@ const config: Config = {
       textShadow: {
         sm: '1px 1px 2px var(--tw-shadow-color)',
         DEFAULT: '3px 3px 4px var(--tw-shadow-color)',
+      },
+      boxShadow: {
+        large: '0 0 20px var(--tw-shadow-color)',
       },
     }
   },
@@ -40,6 +46,14 @@ const config: Config = {
           }),
         },
         { values: theme('textShadow') }
+      ),
+      matchUtilities(
+        {
+          'box-shadow': (value: string) => ({
+            boxShadow: value,
+          }),
+        },
+        { values: theme('boxShadow') }
       )
     }),
   ],
