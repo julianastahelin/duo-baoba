@@ -17,7 +17,7 @@ export function Navbar() {
     
     return (
         <>
-            <nav className='w-full bg-tertiary text-primary-foreground text-base md:text-lg absolute z-10 top-0 flex justify-center'>
+            <nav className='w-full bg-tertiary text-primary-foreground text-base md:text-lg absolute z-10 top-0 flex justify-center md:opacity-80'>
                 <ul className={`
                 flex flex-col md:flex-row flex-nowrap 
                 h-full w-52 md:w-5/6 max-w-[1440px]
