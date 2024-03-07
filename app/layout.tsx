@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Ubuntu } from 'next/font/google'
 
+import { Navbar } from '@/components/navbar'
 import './globals.css'
-
 
 const ubuntu = Ubuntu({
   weight: ['300', '400', '500', '700'],
@@ -20,10 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={ubuntu.className}>
+    <html lang='en' className={ubuntu.className}>
+      <body className='bg-primary relative'>
+        <Navbar />
         {children}
       </body>
     </html>
-  )
+  );
 }
