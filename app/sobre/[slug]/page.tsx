@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
 import StyledMarkdown from '@/components/styledMarkdown'
 import { getPersonalPage } from '@/services/notion'
@@ -11,8 +12,11 @@ export default async function About({
 }: {
     params: { slug: string }
 }) {
-    const { profile, academicEducation, additionalEducation, works } = await getPersonalPage(params.slug)
+    const { profile, academicEducation, additionalEducation, works, err } = await getPersonalPage(params.slug)
 
+    if (err) redirect('/not-found')
+
+    if (profile)
     return (
         <>
             <div></div>
