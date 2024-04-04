@@ -38,7 +38,7 @@ export default async function Home() {
                   ? section.media.includes('youtube')
                     ? <Suspense fallback={<p>Carregando vídeo...</p>}>
                       <iframe
-                        src={section.media}
+                        src={`${section.media}?autoplay=1&mute=1`}
                         allowFullScreen
                         loading='lazy'
                         className='py-12 w-full aspect-square xl:aspect-video'
