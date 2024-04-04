@@ -19,6 +19,7 @@ export const sortByOrder: sortByOrder = {
 }
 
 export async function getApiData(DATABASE_ID: string, filter?:any, sorts?:any) {
+    if (!DATABASE_ID) return null
     return await notionClient.databases.query({
         database_id: DATABASE_ID,
         filter: filter ? filter : undefined,

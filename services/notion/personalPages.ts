@@ -5,6 +5,8 @@ import { PersonalDatabaseKeys, personalDatabases } from './databases'
 
 
 export async function getPersonalPage(person: string) {
+    if (!isValidPerson(person)) return { err: 'Pessoa não encontrada' }
+
     const profile = await getProfile(person)
     const academicEducation = await getAcademicEducation(person)
     const additionalEducation = await getAdditionalEducation(person)
@@ -17,6 +19,11 @@ function getDatabaseId(person: string, database: PersonalDatabaseKeys) {
     const personObject = personalDatabases.find((item) => item.person === person)
     if (personObject)
         return personObject.ids[database as PersonalDatabaseKeys]
+}
+
+function isValidPerson(person: string) {
+    return personalDatabases.find((item) => item.person === person)
+        ? true : false
 }
 
 export async function getProfile(person: string) {
