@@ -27,6 +27,9 @@ const config: Config = {
       backgroundImage: {
         'primary': 'var(--background-primary)',
         'secondary': 'var(--background-secondary)',
+        'quinary': 'var(--background-quinary)',
+        'senary': 'var(--background-senary)',
+        'septenary': 'var(--background-septenary)',
       },
       textShadow: {
         sm: '1px 1px 2px var(--tw-shadow-color)',
