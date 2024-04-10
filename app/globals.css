@@ -5,9 +5,12 @@
 @layer base {
   :root {
     --background-primary: linear-gradient(to bottom, #DFD6BF, #F5EDD9);
-    --background-secondary: linear-gradient(to bottom, rgba(53, 27, 16, 0.02), rgba(53, 27, 16, 0.9));
+    --background-secondary: linear-gradient(to bottom, rgba(53, 27, 16, 0), rgba(53, 27, 16, 0.9));
     --background-tertiary: #FAF1DB;
     --background-quaternary: #A6977166;
+    --background-quinary: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+    --background-senary: linear-gradient(to bottom, rgba(100, 81, 81, 0), rgba(113, 82, 46, 0.55), rgba(50, 29, 4, 1));
+    --background-septenary: linear-gradient(to bottom, rgba(208, 187, 132, 0.35), rgba(132, 110, 55, 0.73), rgba(62, 40, 7, 1));
 
     --foreground-primary: #6E0707;
     --foreground-secondary: #FDECCD;
