@@ -55,7 +55,7 @@ export function Navbar() {
 
             <div
                 onClick={() => setOpen(!open)}
-                className='flex md:hidden flex-col flex-nowrap justify-around w-7 h-7 fixed top-4 right-5 z-20 hover:opacity-80 hover:cursor-pointer'
+                className={`flex md:hidden flex-col flex-nowrap justify-around w-9 h-9 fixed top-4 right-5 z-20 hover:opacity-80 hover:cursor-pointer p-1 rounded-md ${open ? 'bg-inherit' : 'bg-primary'}`}
             >
                 <div className={`w-7 h-[2px] rounded-3xl transition-all duration-300 ease-linear origin-[1px] ${open ? 'bg-tertiary rotate-45' : 'bg-primary-foreground rotate-0'}`} />
                 <div className={`w-7 h-[2px] rounded-3xl transition-all duration-300 ease-linear origin-[1px] ${open ? 'bg-tertiary translate-x-full opacity-0' : 'bg-primary-foreground translate-x-0 opacity-100'}`} />
