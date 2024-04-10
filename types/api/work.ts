@@ -19,6 +19,7 @@ export interface Result {
   icon: any
   parent: Parent
   archived: boolean
+  in_trash: boolean
   properties: Properties
   url: string
   public_url: any
@@ -42,6 +43,7 @@ export interface Parent {
 export interface Properties {
   content: Content
   status: Status
+  displayType: DisplayType
   imageCredit: ImageCredit
   media: Media
   order: Order
@@ -83,6 +85,18 @@ export interface Status {
 }
 
 export interface Select {
+  id: string
+  name: string
+  color: string
+}
+
+export interface DisplayType {
+  id: string
+  type: string
+  select?: Select2
+}
+
+export interface Select2 {
   id: string
   name: string
   color: string
