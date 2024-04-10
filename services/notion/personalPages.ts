@@ -78,7 +78,8 @@ export async function getWorks(person: string) {
             imageCredit: result.properties.imageCredit.rich_text.length
                 ? result.properties.imageCredit.rich_text[0].plain_text
                 : undefined,
-            content: result.properties.content.rich_text[0].plain_text
+            content: result.properties.content.rich_text[0]?.plain_text,
+            displayType: result.properties.displayType.select?.name
         }
     })
 }
