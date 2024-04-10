@@ -1,7 +1,7 @@
 import Markdown from 'react-markdown'
 
 
-export default function StyledMarkdown({
+export function StyledMarkdown({
     markdown,
     className
 }: {

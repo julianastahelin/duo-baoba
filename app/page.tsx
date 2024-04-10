@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Suspense } from 'react'
 
-import StyledMarkdown from '@/components/styledMarkdown'
+import { StyledMarkdown } from '@/components/styledMarkdown'
 import { getHomePage } from '@/services/notion'
 import Icon, { IconProps } from '@/components/icons'
 
@@ -11,6 +11,7 @@ export default async function Home() {
 
   return (
     <main className='pt-16'>
+
       <header className="flex flex-col gap-5 p-8 md:p-0 md:items-center md:h-screen md:justify-center md:bg-[url('/assets/img/home-header-img.png')] md:bg-cover md:bg-center text-primary-foreground md:text-secondary-foreground text-shadow-sm md:text-shadow">
         <div className='tracking-[5px] md:z-10'>
           <h1 className='flex flex-col gap-2 items-center'>
@@ -52,6 +53,7 @@ export default async function Home() {
           })
         }
       </section>
+
       <footer className='flex flex-col items-center p-10 gap-7 text-primary-foreground'>
         <p className='font-light text-center text-lg md:text-3xl tracking-[2px] md:tracking-[5px]'>Acompanhe nossas redes sociais!</p>
         <div className='flex gap-6 font-semibold'>
@@ -66,6 +68,7 @@ export default async function Home() {
           }
         </div>
       </footer>
+
     </main>
   )
 }
