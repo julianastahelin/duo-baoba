@@ -5,3 +5,8 @@ export interface Work {
     content: string
     displayType: string | undefined
 }
+
+export interface SocialMedia {
+    title: string
+    link: string
+}
