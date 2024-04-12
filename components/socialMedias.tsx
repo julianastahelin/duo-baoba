@@ -8,8 +8,9 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { useToast } from '@/components/ui/use-toast'
-import Icon, { IconProps } from '@/components/icons'
 import { SocialMedia } from '@/types'
+
+import { Icon, IconName } from './icons'
 
 
 export function SocialMedias({ socialMedias }: { socialMedias: SocialMedia[] }) {
@@ -34,11 +35,11 @@ export function SocialMedias({ socialMedias }: { socialMedias: SocialMedia[] }) 
                         return (
                             <li key={media.title + index} className='hover:scale-105 transition-all'>
                                 {
-                                    media.title === 'mail'
+                                    media.title === 'Email'
                                         ? <TooltipProvider delayDuration={400}>
                                             <Tooltip>
                                                 <TooltipTrigger onClick={() => copyAddress(media.link)} className='flex items-center'>
-                                                <Icon name={media.title as IconProps['name']} className='w-12 h-12' strokeWidth={1} />
+                                                    <Icon name={media.title as IconName} className='w-8 h-8 md:w-10 md:h-10' />
                                                 </TooltipTrigger>
                                                 <TooltipContent className='bg-primary-foreground text-tertiary-foreground border-none shadow-sm'>
                                                     <button onClick={() => copyAddress(media.link)} className='flex gap-2 items-center'>
@@ -49,7 +50,7 @@ export function SocialMedias({ socialMedias }: { socialMedias: SocialMedia[] }) 
                                             </Tooltip>
                                         </TooltipProvider>
                                         : <a href={media.link} target='_blank'>
-                                            <Icon name={media.title as IconProps['name']} className='w-12 h-12' strokeWidth={1} />
+                                            <Icon name={media.title as IconName} className='w-8 h-8 md:w-10 md:h-10 fill-primary-foreground' />
                                         </a>
                                 }
                             </li>
