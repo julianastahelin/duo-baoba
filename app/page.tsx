@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 
 import { StyledMarkdown } from '@/components/styledMarkdown'
 import { getHomePage } from '@/services/notion'
-import Icon, { IconProps } from '@/components/icons'
+import { SocialMedias } from '@/components/socialMedias'
 
 
 export default async function Home() {
@@ -55,18 +55,8 @@ export default async function Home() {
       </section>
 
       <footer className='flex flex-col items-center p-10 gap-7 text-primary-foreground'>
-        <p className='font-light text-center text-lg md:text-3xl tracking-[2px] md:tracking-[5px]'>Acompanhe nossas redes sociais!</p>
-        <div className='flex gap-6 font-semibold'>
-          {
-            socialMedias.map((media, index) => {
-              return (
-                <a href={media.link} key={media.title + index} target='_blank'>
-                  <Icon name={media.title as IconProps['name']} className='w-12 h-12' strokeWidth={1} />
-                </a>
-              )
-            })
-          }
-        </div>
+        <p className='text-center text-lg md:text-3xl tracking-[2px] md:tracking-[5px]'>Acompanhe nossas redes sociais!</p>
+        <SocialMedias socialMedias={socialMedias} />
       </footer>
 
     </main>

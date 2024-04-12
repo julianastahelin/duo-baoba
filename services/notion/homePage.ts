@@ -2,6 +2,7 @@ import { HomeHeaderImages, HomeHeaderText, HomeSections, SocialMedias } from '@/
 import { checkAndConvertYoutubeWatchToEmbed, filterPublished, getApiData, sortByOrder } from '@/utils/api'
 
 import { HomePageDatabases } from './databases'
+import { SocialMedia } from '@/types'
 
 
 export async function getHomePage() {
@@ -51,7 +52,7 @@ export async function getHomeSections() {
     })
 }
 
-export async function getSocialMedias() {
+export async function getSocialMedias(): Promise<SocialMedia[]> {
     const DATABASE_ID = HomePageDatabases['socialMedias']
     const response = await getApiData(DATABASE_ID, filterPublished, sortByOrder)
     const typedSocialMedias = response as unknown as SocialMedias.ApiResponse
