@@ -48,7 +48,7 @@ export function Navbar() {
                         </NavigationMenu>
                     </li>
                     <li>
-                        <Link href='/' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md'>Contato</Link>
+                        <Link href='/contato' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md'>Contato</Link>
                     </li>
                 </ul>
             </nav>
