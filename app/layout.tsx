@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Ubuntu } from 'next/font/google'
 
 import { Navbar } from '@/components/navbar'
+import { Toaster } from '@/components/ui/toaster'
 import './globals.css'
 
 const ubuntu = Ubuntu({
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className='bg-primary relative'>
         <Navbar />
         {children}
+        <Toaster />
       </body>
     </html>
   );
