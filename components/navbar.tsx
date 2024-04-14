@@ -50,6 +50,9 @@ export function Navbar() {
                     <li>
                         <Link href='/contato' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md'>Contato</Link>
                     </li>
+                    <li>
+                        <Link href='/eventos' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md'>Eventos</Link>
+                    </li>
                 </ul>
             </nav>
 
