@@ -10,3 +10,14 @@ export interface SocialMedia {
     title: string
     link: string
 }
+
+export interface Event {
+    title: string
+    date: string
+    time: string
+    price: string
+    midia: {
+        title: string
+        url: string
+    }[]
+}
