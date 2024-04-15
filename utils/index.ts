@@ -8,3 +8,30 @@ export function stringsToKebabCase(strings: string[]) {
     )
     return strings.join('-')
 }
+
+function isValidDate(date: Date) {
+    return !isNaN(+date)
+}
+export function convertDateFromIsoToDayMonthYear(isoDate: string) {
+    var date = new Date(isoDate)
+    if (isValidDate(date)) {
+        return date.toLocaleDateString(
+            'pt-br',
+            {
+                weekday: 'short',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }
+        )
+    }
+    return null
+}
+
+export function convertTimeFromIsoToHourMinute(isoDate: string) {
+    var dateTime = new Date(isoDate)
+    if (isValidDate(dateTime)) {
+        return dateTime.toLocaleTimeString('pt-BR').split(':').filter((i, index) => index < 2).join('h')
+    }
+    return null
+}
