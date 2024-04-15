@@ -17,7 +17,7 @@ export default async function About({
 
     if (err) redirect('/not-found')
 
-    if (profile)
+    if (profile && academicEducation && additionalEducation && works)
         return (
             <>
                 <div></div>
