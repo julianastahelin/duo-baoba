@@ -15,9 +15,13 @@ export interface Event {
     title: string
     date: string
     time: string
+    place: string
     price: string
-    midia: {
-        title: string
-        url: string
-    }[]
+    image: string
+    media: EventMedia[] | null 
+}
+
+export interface EventMedia {
+    title: string
+    url: string
 }

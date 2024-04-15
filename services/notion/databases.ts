@@ -46,3 +46,7 @@ export const personalDatabases: PersonalDatabase[] = [
         }
     }
 ]
+
+type EventsDatabase_id = string
+
+export const eventsDatabase:EventsDatabase_id = process.env.EVENTS_DATABASE_ID as string
