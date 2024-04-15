@@ -1,14 +1,12 @@
-export interface Work {
+export interface AcademicEducation {
     title: string
-    media: string
-    imageCredit: string | undefined
-    content: string
-    displayType: string | undefined
+    description: string
+    period: string
 }
 
-export interface SocialMedia {
+export interface AdditionalEducation {
     title: string
-    link: string
+    content: string
 }
 
 export interface Event {
@@ -24,4 +22,37 @@ export interface Event {
 export interface EventMedia {
     title: string
     url: string
+}
+
+export interface HomeSection {
+    title: string
+    media: string | undefined
+    content: string
+}
+
+export interface PersonalPage {
+    profile?: Profile
+    academicEducation?: AcademicEducation[]
+    additionalEducation?: AdditionalEducation[]
+    works?: Work[]
+    err?: string
+}
+
+export interface Profile {
+    name: string
+    tags: string[]
+    picture: string
+}
+
+export interface SocialMedia {
+    title: string
+    link: string
+}
+
+export interface Work {
+    title: string
+    media: string
+    imageCredit: string | undefined
+    content: string
+    displayType: string | undefined
 }

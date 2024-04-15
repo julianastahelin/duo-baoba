@@ -1,13 +1,9 @@
 interface HomePageDatabases_ids {
-    headerText: string
-    headerImages: string
     homeSections: string
     socialMedias: string
 }
 
 export const HomePageDatabases: HomePageDatabases_ids = {
-    headerText: process.env.HOME_HEADER_TEXT_DATABASE_ID as string,
-    headerImages: process.env.HOME_HEADER_IMAGES_DATABASE_ID as string,
     homeSections: process.env.HOME_SECIONS_DATABASE_ID as string,
     socialMedias: process.env.HOME_SOCIAL_MEDIAS_DATABASE_ID as string,
 }
