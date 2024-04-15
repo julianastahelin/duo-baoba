@@ -1,10 +1,10 @@
-import { getHomePage } from "@/services/notion"
-import { SocialMedias } from "@/components/socialMedias"
+import { getSocialMedias } from '@/services/notion/'
+import { SocialMedias } from '@/components/socialMedias'
 
 
 export default async function ContactPage() {
 
-    const { socialMedias } = await getHomePage()
+    const socialMedias  = await getSocialMedias()
 
     return (
         <main className='pt-16 flex flex-col-reverse sm:flex-row h-screen overflow-hidden'>

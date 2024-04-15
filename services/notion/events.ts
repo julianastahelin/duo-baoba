@@ -1,7 +1,7 @@
+import { EventsResponse, EventMediasResponse } from '@/types/api'
 import { Event, EventMedia } from '@/types'
-import { Events, EventMedias } from '@/types/api'
-import { convertDateFromIsoToDayMonthYear, convertTimeFromIsoToHourMinute } from '@/utils'
 import { filterPublished, getApiData, sortByDateTime } from '@/utils/api'
+import { convertDateFromIsoToDayMonthYear, convertTimeFromIsoToHourMinute } from '@/utils'
 
 import { notionClient } from '.'
 import { eventsDatabase } from './databases'
@@ -11,7 +11,7 @@ export async function getEvents(): Promise<Event[]> {
     const EVENTS_DATABASE_ID = eventsDatabase
     const response = await getApiData(EVENTS_DATABASE_ID, filterPublished, sortByDateTime)
     
-    const typedEvents = response as unknown as Events.ApiResponse
+    const typedEvents = response as unknown as EventsResponse.ApiResponse
     
     return await Promise.all(typedEvents.results.map(async (result) => {
         return {
@@ -26,10 +26,10 @@ export async function getEvents(): Promise<Event[]> {
     }))
 }
 
-async function getEventMedias(relations: Events.Relation[]): Promise<EventMedia[]> {
+async function getEventMedias(relations: EventsResponse.Relation[]): Promise<EventMedia[]> {
     return await Promise.all(relations.map(async (item) => {
         const mediaResponse = await notionClient.pages.retrieve({ page_id: item.id })
-        const typedMediaResponse = mediaResponse as unknown as EventMedias.ApiResponse
+        const typedMediaResponse = mediaResponse as unknown as EventMediasResponse.ApiResponse
 
         return {
             title: typedMediaResponse.properties.title.title[0].plain_text,

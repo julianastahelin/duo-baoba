@@ -2,13 +2,14 @@ import Image from 'next/image'
 import { Suspense } from 'react'
 
 import { StyledMarkdown } from '@/components/styledMarkdown'
-import { getHomePage } from '@/services/notion'
 import { SocialMedias } from '@/components/socialMedias'
+import { getHomeSections, getSocialMedias } from '@/services/notion'
 
 
 export default async function Home() {
-  const { homeSections, socialMedias } = await getHomePage()
-
+  const homeSections = await getHomeSections()
+  const socialMedias = await getSocialMedias()
+  
   return (
     <main className='pt-16'>
 
