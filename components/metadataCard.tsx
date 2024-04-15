@@ -10,7 +10,7 @@ export async function MetadataCard({ url, title }: { url: string, title:string }
                 {metadata
                     ? <>
                         <p className='font-bold hover:underline'>{metadata.postTitle}</p>
-                        <p className='font-thin text-sm'>{`${metadata.postDescription.slice(0, 70)}...`}</p>
+                        <p className='font-thin text-sm'>{metadata.postDescription.length < 71 ? metadata.postDescription : `${metadata.postDescription.slice(0, 70)}...` }</p>
                         <div className='flex gap-2 items-center pt-2'>
                             {metadata.favicon.length
                                 ? <img src={metadata.favicon[0].href} className='h-6 w-6' />

@@ -8,14 +8,19 @@ export const filterPublished = {
     }
 }
 
-interface sortByOrder {
+interface Sort {
     property: string
     direction: 'ascending' | 'descending'
 }
 
-export const sortByOrder: sortByOrder = {
+export const sortByOrder: Sort = {
     property: 'order',
     direction: 'ascending'
+}
+
+export const sortByDateTime: Sort = {
+    property: 'dateTime',
+    direction: 'descending'
 }
 
 export async function getApiData(DATABASE_ID: string, filter?:any, sorts?:any) {
