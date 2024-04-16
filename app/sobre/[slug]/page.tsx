@@ -69,7 +69,7 @@ export default async function About({
 
                 <section className='flex flex-col items-center justify-center pb-12'>
                     <h2 className='text-3xl md:text-4xl lg:text-6xl font-medium text-wrap justify-self-center tracking-[2px] md:tracking-[5px] text-primary-foreground py-6'>· Trabalhos ·</h2>
-                    <div className='flex sm:flex-row flex-wrap gap-2 sm:gap-7 p-3 sm:p-6 items-center justify-center bg-quaternary box-shadow-large w-full'>
+                    <div className='grid grid-cols-xs sm:grid-cols-sm min-[500px]:grid-cols-xs2 md:grid-cols-md xl:grid-cols-xl gap-2 sm:gap-4 p-3 xl:py-6 items-center justify-center bg-quaternary box-shadow-large w-full'>
                         {works.map((work, index) => {
                             return (
                                 <Link key={work.title + index}
@@ -79,8 +79,8 @@ export default async function About({
                                             ? `url(/assets/img/${stringsToKebabCase([params.slug, work.title])}.png)`
                                             : `url(/assets/img/${work.media})`
                                     } as React.CSSProperties}
-                                    className='bg-[image:var(--image-url)] bg-cover bg-center w-20 sm:w-96 h-20 sm:h-80 flex flex-col justify-end py-2 sm:py-5 px-2 sm:px-6 box-shadow-large max-w-full'>
-                                    <p className='text-tertiary-foreground font-medium text-xs sm:text-xl md:text-4xl text-shadow-sm'>{work.title}</p>
+                                    className='bg-[image:var(--image-url)] bg-cover bg-center aspect-square object-contain w-full flex flex-col justify-end py-2 sm:py-5 px-2 sm:px-6 box-shadow-large'>
+                                    <p className='text-tertiary-foreground font-medium text-xs sm:text-xl md:text-3xl lg:text-4xl text-shadow-sm'>{work.title}</p>
                                 </Link>
                             )
                         })}
