@@ -1,7 +1,6 @@
-import { Suspense } from 'react'
-
 import type { Work } from '@/types'
 import { StyledMarkdown } from './styledMarkdown'
+import { Video } from './video'
 
 
 export function WorkDetails({
@@ -40,14 +39,9 @@ function WorkType1({ work, id }: WorkTypeProps) {
                     <StyledMarkdown className='text-xs md:text-sm font-normal' markdown={work.content} />
                 </div>
                 {work.media?.includes('youtube')
-                    ? <Suspense fallback={<p>Carregando vídeo...</p>}>
-                        <iframe
-                            src={work.media}
-                            allowFullScreen
-                            loading="lazy"
-                            className='h-[60vh] md:h-[80vh] w-full md:w-3/5'
-                        />
-                    </Suspense>
+                    ? <div className='w-full md:w-3/5'>
+                        <Video src={work.media} />
+                    </div>
                     : <div
                         style={{ backgroundImage: `url(/assets/img/${work.media})` }}
                         className='h-[60vh] md:h-[80vh] w-full md:w-3/5 bg-cover bg-center relative'
@@ -69,14 +63,9 @@ function WorkType2({ work, id }: WorkTypeProps) {
         <div className='min-h-fit w-full flex justify-start' id={id}>
             <div className='min-h-fit w-full lg:w-11/12 flex flex-col-reverse md:flex-row items-center justify-center md:justify-end p-4 md:p-0 md:gap-4 bg-quaternary box-shadow-md md:bg-inherit md:box-shadow-none'>
                 {work.media?.includes('youtube')
-                    ? <Suspense fallback={<p>Carregando vídeo...</p>}>
-                        <iframe
-                            src={work.media}
-                            allowFullScreen
-                            loading="lazy"
-                            className='h-[60vh] md:h-[80vh] w-full md:w-3/5'
-                        />
-                    </Suspense>
+                    ? <div className='w-full md:w-3/5'>
+                        <Video src={work.media} />
+                    </div>
                     : <div
                         style={{ backgroundImage: `url(/assets/img/${work.media})` }}
                         className='h-[60vh] md:h-[80vh] w-full md:w-3/5 bg-cover bg-center relative'
@@ -147,14 +136,9 @@ function WorkType5({ work, id }: WorkTypeProps) {
                 <div className='flex flex-col md:flex-row items-center gap-5 md:gap-7'>
                     <StyledMarkdown className='text-xs sm:text-sm font-normal w-4/5 md:w-1/5' markdown={work.content} />
                     {work.media?.includes('youtube')
-                        ? <Suspense fallback={<p>Carregando vídeo...</p>}>
-                            <iframe
-                                src={work.media}
-                                allowFullScreen
-                                loading="lazy"
-                                className='h-[30vh] md:h-[60vh] w-full md:w-4/5'
-                            />
-                        </Suspense>
+                        ? <div className='w-full md:w-4/5'>
+                            <Video src={work.media} />
+                        </div>
                         : <div
                             style={{ backgroundImage: `url(/assets/img/${work.media})` }}
                             className='h-[30vh] md:h-[60vh] w-full md:w-3/5 bg-cover bg-center relative'
@@ -179,14 +163,9 @@ function WorkType6({ work, id }: WorkTypeProps) {
                 <h3 className='text-3xl md:text-5xl lg:text-7xl font-bold md:font-medium text-center text-wrap break-words px-3'>{work.title}</h3>
                 <div className='flex flex-col md:flex-row items-center justify-center gap-5 md:gap-7'>
                     {work.media?.includes('youtube')
-                        ? <Suspense fallback={<p>Carregando vídeo...</p>}>
-                            <iframe
-                                src={work.media}
-                                allowFullScreen
-                                loading="lazy"
-                                className='h-[40vh] md:h-[60vh] w-full sm:w-3/4 lg:w-4/5'
-                            />
-                        </Suspense>
+                        ? <div className='w-full sm:w-3/4 lg:w-4/5'>
+                            <Video src={work.media} />
+                        </div>
                         : <div
                             style={{ backgroundImage: `url(/assets/img/${work.media})` }}
                             className='h-[40vh] md:h-[60vh] w-full sm:w-3/4 lg:w-4/5 bg-cover bg-center relative'
@@ -213,14 +192,9 @@ function WorkType7({ work, id }: WorkTypeProps) {
                 <div className='flex flex-col items-center gap-5 md:gap-7'>
                     <StyledMarkdown className='text-xs sm:text-sm font-normal w-3/4 text-center' markdown={work.content} />
                     {work.media?.includes('youtube')
-                        ? <Suspense fallback={<p>Carregando vídeo...</p>}>
-                            <iframe
-                                src={work.media}
-                                allowFullScreen
-                                loading="lazy"
-                                className='h-[40vh] md:h-[60vh] w-full sm:w-3/4 md:w-4/5'
-                            />
-                        </Suspense>
+                        ? <div className='w-full sm:w-3/4 md:w-4/5'>
+                            <Video src={work.media} />
+                        </div>
                         : <div
                             style={{ backgroundImage: `url(/assets/img/${work.media})` }}
                             className='h-[30vh] md:h-[60vh] w-full md:w-3/5 bg-cover bg-center relative'
@@ -240,34 +214,23 @@ function WorkType7({ work, id }: WorkTypeProps) {
 
 function WorkType8({ work, id }: WorkTypeProps) {
     return (
-        <Suspense fallback={<p>Carregando vídeo...</p>} >
-            <iframe
-                id={id}
-                src={work.media}
-                allowFullScreen
-                loading="lazy"
-                className='h-[60vh] sm:h-[80vh] md:h-[100vh] w-full sm:w-11/12 md:w-4/5  max-w-4xl py-10 md:py-20'
-            />
-        </Suspense>
+        <div className='w-full py-6 md:py-12'>
+            <Video src={work.media} id={id} />
+        </div>
     )
 }
 
 function WorkType9({ work, id }: WorkTypeProps) {
     return (
-        <div className='w-full min-h-[60vh] md:min-h-screen flex items-center justify-center text-primary-foreground pt-10 md:pt-20' id={id}>
+        <div className='w-full min-h-[60vh] md:min-h-screen flex items-center justify-center text-primary-foreground pt-6 md:pt-12' id={id}>
             <div className='flex flex-col w-full max-w-7xl items-center justify-center gap-4 md:gap-9'>
                 <h3 className='text-4xl md:text-5xl lg:text-7xl font-bold md:font-medium text-wrap break-words px-3'>{work.title}</h3>
                 <div className='flex flex-col items-center gap-5 md:gap-7'>
                     <StyledMarkdown className='text-xs sm:text-sm font-normal w-3/4 text-center' markdown={work.content} />
                     {work.media?.includes('youtube')
-                        ? <Suspense fallback={<p>Carregando vídeo...</p>}>
-                            <iframe
-                                src={work.media}
-                                allowFullScreen
-                                loading="lazy"
-                                className='h-[40vh] md:h-[60vh] w-full md:w-4/5'
-                            />
-                        </Suspense>
+                        ? <div className='w-full md:w-4/5'>
+                            <Video src={work.media} />
+                        </div>
                         : <div
                             style={{ backgroundImage: `url(/assets/img/${work.media})` }}
                             className='h-[40vh] md:h-[60vh] w-full bg-cover bg-center relative'
