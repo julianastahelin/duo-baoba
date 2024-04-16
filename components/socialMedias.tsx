@@ -39,7 +39,7 @@ export function SocialMedias({ socialMedias }: { socialMedias: SocialMedia[] }) 
                                         ? <TooltipProvider delayDuration={400}>
                                             <Tooltip>
                                                 <TooltipTrigger onClick={() => copyAddress(media.link)} className='flex items-center'>
-                                                    <Icon name={media.title as IconName} className='w-8 h-8 md:w-10 md:h-10' />
+                                                    <Icon name={media.title as IconName} className='w-8 h-8 md:w-10 md:h-10 stroke-1' />
                                                 </TooltipTrigger>
                                                 <TooltipContent className='bg-primary-foreground text-tertiary-foreground border-none shadow-sm'>
                                                     <button onClick={() => copyAddress(media.link)} className='flex gap-2 items-center'>
@@ -50,7 +50,7 @@ export function SocialMedias({ socialMedias }: { socialMedias: SocialMedia[] }) 
                                             </Tooltip>
                                         </TooltipProvider>
                                         : <a href={media.link} target='_blank'>
-                                            <Icon name={media.title as IconName} className='w-8 h-8 md:w-10 md:h-10 fill-primary-foreground' />
+                                            <Icon name={media.title as IconName} className='w-8 h-8 md:w-10 md:h-10 fill-primary-foreground stroke-1' />
                                         </a>
                                 }
                             </li>
@@ -58,7 +58,7 @@ export function SocialMedias({ socialMedias }: { socialMedias: SocialMedia[] }) 
                     })
                 }
             </ul>
-            <a href={`../assets/pdf/${pressKit?.link}.pdf`} target='_blank' className='py-1 px-2 rounded-full border-primary-foreground border-2 text-xs md:text-sm flex gap-2 items-center justify-center hover:cursor-pointer hover:scale-105 transition-all'>
+            <a href={`../assets/pdf/${pressKit?.link}.pdf`} target='_blank' className='py-1 px-2 rounded-full border-primary-foreground border-[1.5px] text-xs md:text-sm flex gap-2 items-center justify-center hover:cursor-pointer hover:scale-105 transition-all'>
                 {pressKit?.title}
                 <ArrowDownToLine className='w-4 h-4 md:w-5 md:h-5' strokeWidth={2.5} />
             </a>
