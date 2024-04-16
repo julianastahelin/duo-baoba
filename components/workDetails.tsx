@@ -61,7 +61,7 @@ function WorkType1({ work, id }: WorkTypeProps) {
 function WorkType2({ work, id }: WorkTypeProps) {
     return (
         <div className='min-h-fit w-full flex justify-start' id={id}>
-            <div className='min-h-fit w-full lg:w-11/12 flex flex-col-reverse md:flex-row items-center justify-center md:justify-end p-4 md:p-0 md:gap-4 bg-quaternary box-shadow-md md:bg-inherit md:box-shadow-none'>
+            <div className='min-h-fit w-full lg:w-11/12 flex flex-col-reverse md:flex-row items-center justify-center md:justify-end p-4 md:p-0 md:gap-4 bg-inherit md:box-shadow-none'>
                 {work.media?.includes('youtube')
                     ? <div className='w-full md:w-3/5'>
                         <Video src={work.media} />
@@ -130,13 +130,13 @@ function WorkType4({ work, id }: WorkTypeProps) {
 
 function WorkType5({ work, id }: WorkTypeProps) {
     return (
-        <div className='w-full min-h-[60vh] md:h-screen bg-senary flex items-center justify-center text-tertiary-foreground py-10' id={id}>
-            <div className='flex flex-col w-full md:w-4/5 max-w-7xl items-center justify-center gap-9'>
+        <div className='w-full min-h-[60vh] md:min-h-fit bg-quaternary flex items-center justify-center text-primary-foreground py-10 md:py-16 lg:py-24 shadow-inside box-shadow-large' id={id}>
+            <div className='flex flex-col w-full md:w-5/6 max-w-full items-center justify-center gap-9 lg:gap-14'>
                 <h3 className='text-3xl md:text-5xl lg:text-7xl font-bold md:font-medium text-wrap break-words px-3'>{work.title}</h3>
-                <div className='flex flex-col md:flex-row items-center gap-5 md:gap-7'>
-                    <StyledMarkdown className='text-xs sm:text-sm font-normal w-4/5 md:w-1/5' markdown={work.content} />
+                <div className='flex flex-col md:flex-row items-center gap-5'>
+                    <StyledMarkdown className='text-xs sm:text-sm md:text-base lg:text-lg font-normal w-4/5 md:w-2/5 xl:w-3/5' markdown={work.content} />
                     {work.media?.includes('youtube')
-                        ? <div className='w-full md:w-4/5'>
+                        ? <div className='w-full'>
                             <Video src={work.media} />
                         </div>
                         : <div
@@ -158,7 +158,7 @@ function WorkType5({ work, id }: WorkTypeProps) {
 
 function WorkType6({ work, id }: WorkTypeProps) {
     return (
-        <div className='w-full min-h-[60vh] md:min-h-fit bg-septenary flex items-center justify-center text-tertiary-foreground py-10' id={id}>
+        <div className='w-full min-h-[60vh] md:min-h-fit bg-tertiary flex items-center justify-center text-primary-foreground py-10 md:py-16 lg:py-24 box-shadow-large md:shadow-inside' id={id}>
             <div className='flex flex-col w-full md:w-4/5 max-w-7xl items-center justify-center gap-9'>
                 <h3 className='text-3xl md:text-5xl lg:text-7xl font-bold md:font-medium text-center text-wrap break-words px-3'>{work.title}</h3>
                 <div className='flex flex-col md:flex-row items-center justify-center gap-5 md:gap-7'>
@@ -177,7 +177,7 @@ function WorkType6({ work, id }: WorkTypeProps) {
                             }
                         </div>
                     }
-                    <StyledMarkdown className='text-xs sm:text-sm font-normal w-4/5 md:w-1/5' markdown={work.content} />
+                    <StyledMarkdown className='text-xs sm:text-sm md:text-base lg:text-lg font-normal w-4/5 md:w-2/5 xl:w-3/5' markdown={work.content} />
                 </div>
             </div>
         </div>
@@ -186,7 +186,7 @@ function WorkType6({ work, id }: WorkTypeProps) {
 
 function WorkType7({ work, id }: WorkTypeProps) {
     return (
-        <div className='w-full min-h-[60vh] md:h-screen flex items-center justify-center text-primary-foreground py-20' id={id}>
+        <div className='w-full min-h-[60vh] md:min-h-fit flex items-center justify-center text-primary-foreground py-10 md:py-16 lg:py-24' id={id}>
             <div className='flex flex-col w-full md:w-4/5 max-w-7xl items-center justify-center gap-9'>
                 <h3 className='text-3xl md:text-5xl lg:text-7xl font-bold md:font-medium text-wrap break-words px-3'>{work.title}</h3>
                 <div className='flex flex-col items-center gap-5 md:gap-7'>
