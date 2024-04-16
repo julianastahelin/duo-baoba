@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { Suspense } from 'react'
 
+import { Video } from '@/components/video'
 import { StyledMarkdown } from '@/components/styledMarkdown'
 import { SocialMedias } from '@/components/socialMedias'
 import { getHomeSections, getSocialMedias } from '@/services/notion'
@@ -9,7 +9,7 @@ import { getHomeSections, getSocialMedias } from '@/services/notion'
 export default async function Home() {
   const homeSections = await getHomeSections()
   const socialMedias = await getSocialMedias()
-  
+
   return (
     <main className='pt-16'>
 
@@ -38,14 +38,9 @@ export default async function Home() {
                 <StyledMarkdown markdown={section.content} className='text-sm sm:text-xl font-light' />
                 {section.media
                   ? section.media.includes('youtube')
-                    ? <Suspense fallback={<p>Carregando vídeo...</p>}>
-                      <iframe
-                        src={`${section.media}?autoplay=1&mute=1`}
-                        allowFullScreen
-                        loading='lazy'
-                        className='py-12 w-full aspect-square xl:aspect-video'
-                      />
-                    </Suspense>
+                    ? <div className='w-full py-2 md:py-6'>
+                      <Video src={`${section.media}?autoplay=1&mute=1`} />
+                    </div>
                     : <Image src={`/assets/img/${section.media}`} alt='Work image' height={300} width={500} className='py-12' />
                   : ''
                 }
