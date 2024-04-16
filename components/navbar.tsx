@@ -28,7 +28,7 @@ export function Navbar() {
                 transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : 'translate-x-full'} md:translate-x-0 
                 `}>
                     <li>
-                        <Link href='/' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md'>Início</Link>
+                        <Link href='/' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md' onClick={() => setOpen(!open)}>Início</Link>
                     </li>
                     <li>
                         <NavigationMenu>
@@ -36,10 +36,10 @@ export function Navbar() {
                                 <NavigationMenuItem>
                                     <NavigationMenuTrigger className='text-base md:text-lg font-normal'>Sobre nós</NavigationMenuTrigger>
                                     <NavigationMenuContent className='flex flex-col gap-2 text-lg bg-primary-foreground md:bg-tertiary bg-opacity-100 w-40 text-nowrap'>
-                                        <NavigationMenuLink href='/sobre/mayara' className='hover:text-primary-foreground hover:bg-primary py-2 px-4 rounded-md'>
+                                        <NavigationMenuLink href='/sobre/mayara' className='hover:text-primary-foreground hover:bg-primary py-2 px-4 rounded-md' onClick={() => setOpen(!open)}>
                                             Mayara Araújo
                                         </NavigationMenuLink>
-                                        <NavigationMenuLink href='/sobre/david' className='hover:text-primary-foreground hover:bg-primary py-2 px-4 rounded-md'>
+                                        <NavigationMenuLink href='/sobre/david' className='hover:text-primary-foreground hover:bg-primary py-2 px-4 rounded-md' onClick={() => setOpen(!open)}>
                                             David Cardona
                                         </NavigationMenuLink>
                                     </NavigationMenuContent>
@@ -48,10 +48,10 @@ export function Navbar() {
                         </NavigationMenu>
                     </li>
                     <li>
-                        <Link href='/contato' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md'>Contato</Link>
+                        <Link href='/contato' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md' onClick={() => setOpen(!open)}>Contato</Link>
                     </li>
                     <li>
-                        <Link href='/eventos' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md'>Eventos</Link>
+                        <Link href='/eventos' className='hover:text-primary-foreground hover:bg-primary p-2 rounded-md' onClick={() => setOpen(!open)}>Eventos</Link>
                     </li>
                 </ul>
             </nav>
