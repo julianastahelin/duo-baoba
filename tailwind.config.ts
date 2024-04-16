@@ -38,6 +38,13 @@ const config: Config = {
       boxShadow: {
         large: '0 0 20px var(--tw-shadow-color)',
       },
+      gridTemplateColumns: {
+        'xs': 'repeat(auto-fill, minmax(90px, 1fr))',
+        'xs2': 'repeat(auto-fit, minmax(110px, 1fr))',
+        'sm': 'repeat(auto-fit, minmax(100px, 200px))',
+        'md': 'repeat(auto-fit, minmax(150px, 250px))',
+        'xl': 'repeat(auto-fit, minmax(200px, 350px))',
+      }
     }
   },
   plugins: [
