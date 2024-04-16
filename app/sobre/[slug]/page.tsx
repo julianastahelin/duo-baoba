@@ -67,7 +67,7 @@ export default async function About({
                     }
                 </section>
 
-                <section className='flex flex-col items-center justify-center pb-12'>
+                <section className='flex flex-col items-center justify-center'>
                     <h2 className='text-3xl md:text-4xl lg:text-6xl font-medium text-wrap justify-self-center tracking-[2px] md:tracking-[5px] text-primary-foreground py-6'>· Trabalhos ·</h2>
                     <div className='grid grid-cols-xs sm:grid-cols-sm min-[500px]:grid-cols-xs2 md:grid-cols-md xl:grid-cols-xl gap-2 sm:gap-4 p-3 xl:py-6 items-center justify-center bg-quaternary box-shadow-large w-full'>
                         {works.map((work, index) => {

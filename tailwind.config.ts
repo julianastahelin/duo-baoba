@@ -36,6 +36,7 @@ const config: Config = {
         DEFAULT: '3px 3px 4px var(--tw-shadow-color)',
       },
       boxShadow: {
+        inside: 'inset 0 0 20px 0 var(--tw-shadow-color)',
         large: '0 0 20px var(--tw-shadow-color)',
       },
       gridTemplateColumns: {
