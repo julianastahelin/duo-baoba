@@ -41,13 +41,17 @@ export async function getPersonalPage(person: string): Promise<PersonalPage> {
 export async function getProfile(person: string): Promise<Profile> {
     const DATABASE_ID = getDatabaseId(person, 'profile')
     const response = await getApiData(DATABASE_ID as string)
+    console.log(response)
     const typedProfile = response as unknown as ProfileResponse.ApiResponse
     const validProfile = typedProfile.results.filter(result => result.properties.name.title.length)
 
     return {
         name: validProfile[0].properties.name.title[0].text.content,
         tags: validProfile[0].properties.tags.multi_select.map((tag) => tag.name),
-        picture: validProfile[0].properties.picture.url
+        picture: validProfile[0].properties.picture.url,
+        instagram: validProfile[0].properties.instagram.rich_text[0].href,
+        phone: validProfile[0].properties.phone.phone_number,
+        email: validProfile[0].properties.email.email
     }
 }
 
