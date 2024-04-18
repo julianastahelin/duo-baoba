@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
+import { PersonalContact } from '@/components/personalContact'
 import { StyledMarkdown } from '@/components/styledMarkdown'
 import { WorkDetails } from '@/components/workDetails'
 import { getPersonalPage } from '@/services/notion'
@@ -91,6 +92,9 @@ export default async function About({
                         )
                     })}
                 </section>
+                <footer className='box-shadow-large'>
+                    <PersonalContact profile={profile} />
+                </footer>
             </>
         )
 }
