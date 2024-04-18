@@ -19,6 +19,7 @@ export interface Result {
   icon: any
   parent: Parent
   archived: boolean
+  in_trash: boolean
   properties: Properties
   url: string
   public_url: any
@@ -40,15 +41,62 @@ export interface Parent {
 }
 
 export interface Properties {
+  instagram: Instagram
   picture: Picture
+  phone: Phone
+  email: Email
   tags: Tags
   name: Name
+}
+
+export interface Instagram {
+  id: string
+  type: string
+  rich_text: RichText[]
+}
+
+export interface RichText {
+  type: string
+  text: Text
+  annotations: Annotations
+  plain_text: string
+  href: string
+}
+
+export interface Text {
+  content: string
+  link: Link
+}
+
+export interface Link {
+  url: string
+}
+
+export interface Annotations {
+  bold: boolean
+  italic: boolean
+  strikethrough: boolean
+  underline: boolean
+  code: boolean
+  color: string
 }
 
 export interface Picture {
   id: string
   type: string
   url: string
+}
+
+export interface Phone {
+  id: string
+  type: string
+  phone_number: string
+}
+
+export interface Email {
+  id: string
+  type: string
+  email: string
 }
 
 export interface Tags {
@@ -71,18 +119,18 @@ export interface Name {
 
 export interface Title {
   type: string
-  text: Text
-  annotations: Annotations
+  text: Text2
+  annotations: Annotations2
   plain_text: string
   href: any
 }
 
-export interface Text {
+export interface Text2 {
   content: string
   link: any
 }
 
-export interface Annotations {
+export interface Annotations2 {
   bold: boolean
   italic: boolean
   strikethrough: boolean

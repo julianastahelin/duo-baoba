@@ -42,6 +42,9 @@ export interface Profile {
     name: string
     tags: string[]
     picture: string
+    instagram: string
+    phone: string
+    email: string
 }
 
 export interface SocialMedia {
