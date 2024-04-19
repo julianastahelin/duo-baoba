@@ -15,6 +15,8 @@ export function PersonalContact({ profile }: { profile: Profile }) {
             className: 'bg-primary-foreground text-tertiary-foreground',
         })
     }
+
+    const profilePhoneNumsOnly = profile.phone.split('').map(char => /^[0-9]*$/.test(char) ? char : '').join('')
     
     return (
         <div className='text-primary-foreground flex flex-col items-center justify-center gap-6 p-10 break-words'>
@@ -27,7 +29,7 @@ export function PersonalContact({ profile }: { profile: Profile }) {
                     </a>
                 </li>
                 <li>
-                    <a href={`tel:+55${profile.phone}`} target='_blank' className='flex flex-wrap gap-1 items-center w-full'>
+                    <a href={`https://wa.me/55${profilePhoneNumsOnly}`} target='_blank' className='flex flex-wrap gap-1 items-center w-full'>
                         <Icon name={'Whatsapp' as IconName} className='w-7 h-7 md:w-8 md:h-8 fill-primary-foreground stroke-1' />
                         <span className='underline max-w-full'>{profile.phone}</span>
                     </a>
