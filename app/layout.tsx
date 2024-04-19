@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import { Ubuntu } from 'next/font/google'
 
 import { Navbar } from '@/components/navbar'
+import { ScrollTopButton } from '@/components/scrollTopBtn'
 import { Toaster } from '@/components/ui/toaster'
+
 import './globals.css'
+
 
 const ubuntu = Ubuntu({
   weight: ['300', '400', '500', '700'],
@@ -25,6 +28,7 @@ export default function RootLayout({
       <body className='bg-primary relative'>
         <Navbar />
         {children}
+        <ScrollTopButton />
         <Toaster />
       </body>
     </html>
