@@ -22,6 +22,9 @@ const config: Config = {
         },
         quaternary: {
           DEFAULT: 'var(--background-quaternary)',
+        },
+        shadowColor: {
+          DEFAULT: 'var(--tw-dark-shadow-color)',
         }
       },
       backgroundImage: {
