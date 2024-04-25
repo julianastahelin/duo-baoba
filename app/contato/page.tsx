@@ -2,6 +2,14 @@ import { getSocialMedias } from '@/services/notion/'
 import { SocialMedias } from '@/components/socialMedias'
 
 
+export const metadata = {
+    title: 'Contato',
+    descriptions: 'Página de contatos do Duo Baobá.',
+    alternates: {
+        canonical: '/contato'
+    },
+}
+
 export default async function ContactPage() {
 
     const socialMedias  = await getSocialMedias()

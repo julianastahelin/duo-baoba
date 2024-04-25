@@ -1,6 +1,15 @@
 import { EventCard } from '@/components/eventCard'
 import { getEvents } from '@/services/notion/events'
 
+
+export const metadata = {
+    title: 'Eventos',
+    descriptions: 'Eventos com apresentações do Duo Baobá.',
+    alternates: {
+        canonical: '/eventos'
+    },
+}
+
 export default async function Eventos() {
 
     const events = await getEvents()

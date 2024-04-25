@@ -2,6 +2,12 @@
 
 import { useEffect } from 'react'
 
+
+export const metadata = { 
+  title: 'Erro',
+  description: 'Ocorreu um erro. Tentar novamente.' 
+}
+
 export default function Error({
   error,
   reset,
