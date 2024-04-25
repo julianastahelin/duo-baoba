@@ -35,3 +35,14 @@ export function convertTimeFromIsoToHourMinute(isoDate: string) {
     }
     return null
 }
+
+export function joinStringsFromArray(tags: string[]) {
+    if (tags.length === 1) return tags
+    if (tags.length === 2) return tags.join(' e ')
+    if (tags.length > 2) {
+        var lastTags = `${tags[tags.length - 2]} e ${tags[tags.length - 1]}`
+        tags = tags.slice(0, -2)
+        tags = [...tags, lastTags]
+        return tags.join(', ')
+    }
+}

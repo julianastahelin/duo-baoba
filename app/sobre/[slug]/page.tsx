@@ -6,14 +6,30 @@ import { PersonalContact } from '@/components/personalContact'
 import { StyledMarkdown } from '@/components/styledMarkdown'
 import { WorkDetails } from '@/components/workDetails'
 import { getPersonalPage } from '@/services/notion'
-import { stringsToKebabCase } from '@/utils'
+import { joinStringsFromArray, stringsToKebabCase } from '@/utils'
 
 
-export default async function About({
-    params
-}: {
-    params: { slug: string }
-}) {
+interface PageProps {
+    params: {
+        slug: string
+    }
+}
+
+export async function generateMetadata({ params }: PageProps) {
+    const { profile } = await getPersonalPage(params.slug)
+    if (profile) {
+        const description = joinStringsFromArray(profile.tags)
+        return {
+            title: profile.name,
+            description: description,
+            alternates: {
+                canonical: `/sobre/${params.slug}`
+            },
+        }
+    }
+}
+
+export default async function About({ params }: PageProps) {
     const { profile, academicEducation, additionalEducation, works, err } = await getPersonalPage(params.slug)
 
     if (err) redirect('/not-found')

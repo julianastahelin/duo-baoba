@@ -1,6 +1,11 @@
 import Link from 'next/link'
 
 
+export const metadata = { 
+    title: 'Página não encontrada',
+    description: 'A página buscada não existe' 
+}
+
 export default function NotFound() {
     return (
         <div className='h-screen w-full flex flex-col justify-center items-center gap-10'>
