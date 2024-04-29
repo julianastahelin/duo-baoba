@@ -27,6 +27,14 @@ export const metadata: Metadata = {
   verification: {
     google: 'SxxgicHgEvIXTNo-QILSefFzRtoMytiKQec9DJQvFbk'
   },
+  openGraph: {
+    title: 'Duo Baobá',
+    description: 'Música instrumental brasileira',
+    type: 'website',
+    url: 'https://duo-baoba.vercel.app',
+    siteName: 'Duo Baobá',
+    locale: 'pt_BR'
+  },
 }
 
 

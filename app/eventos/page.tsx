@@ -8,6 +8,14 @@ export const metadata = {
     alternates: {
         canonical: '/eventos'
     },
+    openGraph: {
+        title: 'Eventos',
+        description: 'Eventos com apresentações do Duo Baobá.',
+        type: 'website',
+        url: 'https://duo-baoba.vercel.app/eventos',
+        siteName: 'Duo Baobá',
+        locale: 'pt_BR'
+    },
 }
 
 export default async function Eventos() {

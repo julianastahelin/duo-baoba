@@ -8,11 +8,19 @@ export const metadata = {
     alternates: {
         canonical: '/contato'
     },
+    openGraph: {
+        title: 'Contato',
+        description: 'Página de contatos do Duo Baobá.',
+        type: 'website',
+        url: 'https://duo-baoba.vercel.app/contato',
+        siteName: 'Duo Baobá',
+        locale: 'pt_BR'
+    },
 }
 
 export default async function ContactPage() {
 
-    const socialMedias  = await getSocialMedias()
+    const socialMedias = await getSocialMedias()
 
     return (
         <main className='pt-16 flex flex-col-reverse sm:flex-row h-screen overflow-hidden'>

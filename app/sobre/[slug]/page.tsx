@@ -25,6 +25,20 @@ export async function generateMetadata({ params }: PageProps) {
             alternates: {
                 canonical: `/sobre/${params.slug}`
             },
+            openGraph: {
+                title: profile.name,
+                description: description,
+                type: 'website',
+                url: `https://duo-baoba.vercel.app/sobre/${params.slug}`,
+                siteName: 'Duo Baobá',
+                locale: 'pt_BR',
+                images: [
+                    {
+                        url: `/assets/img/${profile.picture}`,
+                        alt: `Foto de perfil de ${profile.name}`
+                    },
+                ],
+            },
         }
     }
 }
