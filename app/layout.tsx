@@ -23,7 +23,10 @@ export const metadata: Metadata = {
   description: 'Música instrumental brasileira',
   keywords: ['Música instrumental', 'Música brasileira', 'Choro', 'Chorinho', 'Flauta', 'Violão', 'Flautista', 'Violonista', 'Florianópolis', 'Floripa', 'Santa Catarina', 'Brasil', 'Mayara Araújo', 'Mayara', 'David', 'David Cardona', 'Música para eventos', 'Show', 'Show musical', 'Recital', 'Apresentações musicais', 'Musicistas', 'Músicos', 'Duo flauta e violão', 'Duo instrumental', 'Pixinguinha', 'Chiquinha Gonzaga', 'Jacob do Bandolin', 'Waldir Azevedo', 'Ernesto Nazareth', 'Joaquim Calado', 'João Pernambuco' ],
   creator: 'Juliana Stahelin e Sabrina Stahelin',
-  publisher: 'Vercel'
+  publisher: 'Vercel',
+  verification: {
+    google: 'SxxgicHgEvIXTNo-QILSefFzRtoMytiKQec9DJQvFbk'
+  },
 }
 
 
