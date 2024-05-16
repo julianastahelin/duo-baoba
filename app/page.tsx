@@ -25,7 +25,7 @@ export default async function Home() {
           </h1>
           <p className='font-light text-base md:text-xl lg:text-3xl text-center'>· Flauta · Violão ·</p>
         </div>
-        <Image src='/assets/img/home-header-img.png' className='w-full min-w-52 md:hidden' width={300} height={500} alt='Picture of Mayara and David' />
+        <Image src='/assets/img/home-header-img.png' className='w-full min-w-52 md:hidden' width={300} height={500} alt='Foto do Duo Baobá - Mayara e David' title='Foto do Duo Baobá - Mayara e David' />
       </header>
       <div className='bg-tertiary py-5 w-full' />
 
@@ -41,7 +41,7 @@ export default async function Home() {
                     ? <div className='w-full py-2 md:py-6'>
                       <Video src={`${section.media}?autoplay=1&mute=1`} />
                     </div>
-                    : <Image src={`/assets/img/${section.media}`} alt='Work image' height={300} width={500} className='py-12' />
+                    : <Image src={`/assets/img/${section.media}`} alt={`${section.title}`} height={300} width={500} className='py-12' />
                   : ''
                 }
               </section>
