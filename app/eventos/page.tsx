@@ -8,7 +8,7 @@ export const metadata = {
         canonical: '/eventos'
     },
     openGraph: {
-        title: 'Página de eventos',
+        title: 'Página de eventos | Duo Baobá',
         type: 'website',
         url: 'https://duobaoba.vercel.app/eventos',
         siteName: 'Duo Baobá',
