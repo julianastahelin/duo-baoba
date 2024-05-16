@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps) {
                 canonical: `/sobre/${params.slug}`
             },
             openGraph: {
-                title: profile.name,
+                title: `Sobre ${profile.name} | Duo Baobá`,
                 description: description,
                 type: 'website',
                 url: `https://duobaoba.vercel.app/sobre/${params.slug}`,

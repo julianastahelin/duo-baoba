@@ -8,7 +8,7 @@ export const metadata = {
         canonical: '/contato'
     },
     openGraph: {
-        title: 'Página de contatos',
+        title: 'Página de contatos | Duo Baobá',
         type: 'website',
         url: 'https://duobaoba.vercel.app/contato',
         siteName: 'Duo Baobá - Música instrumental brasileira',
