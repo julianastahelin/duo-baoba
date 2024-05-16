@@ -14,13 +14,13 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://duo-baoba.vercel.app'),
+  metadataBase: new URL('https://duobaoba.vercel.app'),
   title: {
-    default:'Duo Baobá',
+    default:'Duo Baobá - Música instrumental brasileira',
     template: '%s | Duo Baobá'
   },
   category: 'Música',
-  description: 'Música instrumental brasileira',
+  description: 'O Duo Baobá é um duo de música instrumental brasileira formado pela flautista Mayara Araujo e pelo violonista David Cardona, cuja pesquisa sonora explora a linguagem do "Choro" em sua diversidade. O duo é atuante em Florianópolis, onde realiza apresentações em espaços de lazer, cultura e eventos particulares.',
   keywords: ['Música instrumental', 'Música brasileira', 'Choro', 'Chorinho', 'Flauta', 'Violão', 'Flautista', 'Violonista', 'Florianópolis', 'Floripa', 'Santa Catarina', 'Brasil', 'Mayara Araújo', 'Mayara', 'David', 'David Cardona', 'Música para eventos', 'Show', 'Show musical', 'Recital', 'Apresentações musicais', 'Musicistas', 'Músicos', 'Duo flauta e violão', 'Duo instrumental', 'Pixinguinha', 'Chiquinha Gonzaga', 'Jacob do Bandolin', 'Waldir Azevedo', 'Ernesto Nazareth', 'Joaquim Calado', 'João Pernambuco' ],
   creator: 'Juliana Stahelin e Sabrina Stahelin',
   publisher: 'Vercel',
@@ -28,13 +28,19 @@ export const metadata: Metadata = {
     google: 'SxxgicHgEvIXTNo-QILSefFzRtoMytiKQec9DJQvFbk'
   },
   openGraph: {
-    title: 'Duo Baobá',
-    description: 'Música instrumental brasileira',
+    title: 'Duo Baobá - Música instrumental brasileira',
+    description: 'O Duo Baobá é um duo de música instrumental brasileira formado pela flautista Mayara Araujo e pelo violonista David Cardona, cuja pesquisa sonora explora a linguagem do "Choro" em sua diversidade. O duo é atuante em Florianópolis, onde realiza apresentações em espaços de lazer, cultura e eventos particulares.',
     type: 'website',
-    url: 'https://duo-baoba.vercel.app',
-    siteName: 'Duo Baobá',
+    url: 'https://duobaoba.vercel.app',
+    siteName: 'Duo Baobá - Música instrumental brasileira',
     locale: 'pt_BR'
   },
+  alternates: {
+    canonical: './',
+    languages: {
+      'pt-BR': '/'
+    }
+  }
 }
 
 

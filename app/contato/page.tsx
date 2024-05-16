@@ -3,17 +3,15 @@ import { SocialMedias } from '@/components/socialMedias'
 
 
 export const metadata = {
-    title: 'Contato',
-    descriptions: 'Página de contatos do Duo Baobá.',
+    title: 'Página de contatos',
     alternates: {
         canonical: '/contato'
     },
     openGraph: {
-        title: 'Contato',
-        description: 'Página de contatos do Duo Baobá.',
+        title: 'Página de contatos',
         type: 'website',
-        url: 'https://duo-baoba.vercel.app/contato',
-        siteName: 'Duo Baobá',
+        url: 'https://duobaoba.vercel.app/contato',
+        siteName: 'Duo Baobá - Música instrumental brasileira',
         locale: 'pt_BR'
     },
 }

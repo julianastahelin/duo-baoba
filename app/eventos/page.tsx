@@ -3,16 +3,14 @@ import { getEvents } from '@/services/notion/events'
 
 
 export const metadata = {
-    title: 'Eventos',
-    descriptions: 'Eventos com apresentações do Duo Baobá.',
+    title: 'Página de eventos',
     alternates: {
         canonical: '/eventos'
     },
     openGraph: {
-        title: 'Eventos',
-        description: 'Eventos com apresentações do Duo Baobá.',
+        title: 'Página de eventos',
         type: 'website',
-        url: 'https://duo-baoba.vercel.app/eventos',
+        url: 'https://duobaoba.vercel.app/eventos',
         siteName: 'Duo Baobá',
         locale: 'pt_BR'
     },

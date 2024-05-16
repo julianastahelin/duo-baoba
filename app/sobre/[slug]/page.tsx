@@ -18,9 +18,11 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
     const { profile } = await getPersonalPage(params.slug)
     if (profile) {
-        const description = joinStringsFromArray(profile.tags)
+        const lowerCaseTags = profile.tags.map(tag => tag.toLowerCase())
+        const profileTags = joinStringsFromArray(lowerCaseTags)
+        const description = `${profile.name} é ${profileTags}. Atua em Florianópolis/SC e compõe o Duo Baobá.`
         return {
-            title: profile.name,
+            title: `Sobre ${profile.name}`,
             description: description,
             alternates: {
                 canonical: `/sobre/${params.slug}`
@@ -29,8 +31,8 @@ export async function generateMetadata({ params }: PageProps) {
                 title: profile.name,
                 description: description,
                 type: 'website',
-                url: `https://duo-baoba.vercel.app/sobre/${params.slug}`,
-                siteName: 'Duo Baobá',
+                url: `https://duobaoba.vercel.app/sobre/${params.slug}`,
+                siteName: 'Duo Baobá - Música instrumental brasileira',
                 locale: 'pt_BR',
                 images: [
                     {
