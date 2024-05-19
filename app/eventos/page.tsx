@@ -26,8 +26,13 @@ export default async function Eventos() {
             <AnimatedH1 y={10} delay={0.2} className='text-4xl md:text-5xl tracking-[2px] md:tracking-8px font-bold py-5 md:py-10'>Eventos</AnimatedH1>
             <div className='flex md:flex-row flex-wrap gap-5 items-stretch justify-center w-full'>
                 {events.map((event, index) =>
-                    <AnimatedDiv x={10} delay={0.6 + index / 3} className='w-4/5 sm:w-3/5 max-w-[500px]'>
-                        <EventCard event={event} key={event.title + index} />
+                    <AnimatedDiv
+                        x={10}
+                        delay={0.6 + index / 3}
+                        key={event.title + index}
+                        className='w-4/5 sm:w-3/5 max-w-[500px]'
+                    >
+                        <EventCard event={event} />
                     </AnimatedDiv>
                 )}
             </div>
