@@ -11,16 +11,15 @@ import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
-} from "@/components/ui/hover-card"
+} from '@/components/ui/hover-card'
 import { Event } from '@/types'
 
 import { MetadataCard } from './metadataCard'
 
 
 export function EventCard({ event }: { event: Event }) {
-    // console.log(`DATE:::::::::::::`, event.date)
     return (
-        <Card className='border-2 border-primary-foreground flex flex-col sm:flex-row items-stretch w-4/5 sm:w-3/5 max-w-[500px]'>
+        <Card className='border-2 border-primary-foreground flex flex-col sm:flex-row items-stretch w-full h-full'>
             <Image src={`/assets/img/${event.image}`} width={300} height={300} alt='Cartaz do evento' className='w-full sm:w-1/2' />
 
             <div>
