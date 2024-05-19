@@ -119,8 +119,13 @@ export default async function About({ params }: PageProps) {
                         </div>
                         {works.map((work, index) => {
                             return (
-                                <AnimatedDiv className='w-full' y={15} delay={0}>
-                                    <WorkDetails work={work} id={`${(index + 1)}-${work.title}`} key={work.title + index} />
+                                <AnimatedDiv
+                                    y={15}
+                                    delay={0}
+                                    key={work.title + index}
+                                    className='w-full'
+                                >
+                                    <WorkDetails work={work} id={`${(index + 1)}-${work.title}`} />
                                 </AnimatedDiv>
                             )
                         })}
