@@ -20,7 +20,7 @@ export async function getEvents(): Promise<Event[]> {
             time: convertTimeFromIsoToHourMinute(result.properties.dateTime.date?.start) || '',
             place: result.properties.place.rich_text[0]?.plain_text || '',
             price: result.properties.price.rich_text[0]?.plain_text || '',
-            image: result.properties.image.rich_text[0]?.href || '',
+            image: result.properties.image.rich_text[0]?.plain_text || '',
             media: await getEventMedias(result.properties.media.relation)
         }
     }))
