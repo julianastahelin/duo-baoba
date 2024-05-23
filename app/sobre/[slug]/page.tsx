@@ -23,13 +23,13 @@ export async function generateMetadata({ params }: PageProps) {
         const profileTags = joinStringsFromArray(lowerCaseTags)
         const description = `${profile.name} é ${profileTags}. Atua em Florianópolis/SC e compõe o Duo Baobá.`
         return {
-            title: `Sobre ${profile.name}`,
+            title: `Portfólio - ${profile.name}`,
             description: description,
             alternates: {
                 canonical: `/sobre/${params.slug}`
             },
             openGraph: {
-                title: `Sobre ${profile.name} | Duo Baobá`,
+                title: `Portfólio - ${profile.name} | Duo Baobá`,
                 description: description,
                 type: 'website',
                 url: `https://duobaoba.vercel.app/sobre/${params.slug}`,
