@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function About({ params }: PageProps) {
     const { profile, academicEducation, additionalEducation, works, err } = await getPersonalPage(params.slug)
+    const titleToRight = params.slug === 'mayara'
 
     if (err) redirect('/not-found')
 
@@ -57,10 +58,14 @@ export default async function About({ params }: PageProps) {
                 <div></div>
                 <AnimatedHeader
                     style={{ '--image-url': `url(/assets/img/${profile.picture})` } as React.CSSProperties}
-                    className='pt-24 md:pt-20 mb-20 w-full md:min-h-screen bg-primary md:bg-[image:var(--image-url)] md:bg-no-repeat md:bg-cover md:bg-right lg:bg-center flex flex-col justify-center md:justify-between items-center lg:items-start gap-10'
+                    className={`pt-24 md:pt-20 mb-20 w-full md:min-h-screen bg-primary md:bg-[image:var(--image-url)] md:bg-no-repeat md:bg-cover gap-10 flex flex-col justify-center md:justify-between lg:bg-center items-center
+                        ${titleToRight ? 'md:bg-left lg:items-end' : 'md:bg-right lg:items-start'}
+                    `}
                 >
                     <div></div>
-                    <div className='flex flex-col gap-4 lg:gap-8 text-primary-foreground md:text-secondary-foreground text-shadow-sm md:text-shadow items-center p-3 text-center  lg:pl-32 xl:pl-48'>
+                    <div className={`flex flex-col gap-4 lg:gap-8 text-primary-foreground md:text-secondary-foreground text-shadow-sm md:text-shadow items-center p-3 text-center
+                        ${titleToRight ? 'lg:pr-16 xl:pr-20 2xl:pr-40' : 'lg:pl-32 xl:pl-48'}`}
+                    >
                         <AnimatedH1 className='text-4xl tracking-[2px] md:text-6xl lg:text-[80px] font-bold md:tracking-[5px]'>{profile.name}</AnimatedH1>
                         <AnimatedParagraph className='text-base tracking-[1px] md:text-xl lg:text-3xl font-light md:tracking-[4px]'>· {profile.tags.join(' · ')} ·</AnimatedParagraph>
                     </div>
