@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps) {
                 title: `Portfólio - ${profile.name} | Duo Baobá`,
                 description: description,
                 type: 'website',
-                url: `https://duobaoba.vercel.app/sobre/${params.slug}`,
+                url: `https://duobaoba.com.br/sobre/${params.slug}`,
                 siteName: 'Duo Baobá - Música instrumental brasileira',
                 locale: 'pt_BR',
                 images: [
