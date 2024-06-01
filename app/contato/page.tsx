@@ -11,7 +11,7 @@ export const metadata = {
     openGraph: {
         title: 'Página de contatos | Duo Baobá',
         type: 'website',
-        url: 'https://duobaoba.vercel.app/contato',
+        url: 'https://duobaoba.com.br/contato',
         siteName: 'Duo Baobá - Música instrumental brasileira',
         locale: 'pt_BR'
     },

@@ -11,7 +11,7 @@ export const metadata = {
     openGraph: {
         title: 'Página de eventos | Duo Baobá',
         type: 'website',
-        url: 'https://duobaoba.vercel.app/eventos',
+        url: 'https://duobaoba.com.br/eventos',
         siteName: 'Duo Baobá',
         locale: 'pt_BR'
     },
