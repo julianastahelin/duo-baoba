@@ -3,6 +3,8 @@ import { EventCard } from '@/components/eventCard'
 import { getEvents } from '@/services/notion/events'
 
 
+export const revalidate = 10
+
 export const metadata = {
     title: 'Página de eventos',
     alternates: {

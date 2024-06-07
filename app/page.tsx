@@ -6,6 +6,7 @@ import { Video } from '@/components/video'
 import { SocialMedias } from '@/components/socialMedias'
 import { getHomeSections, getSocialMedias } from '@/services/notion'
 
+export const revalidate = 10
 
 export default async function Home() {
   const homeSections = await getHomeSections()
