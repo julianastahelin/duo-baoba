@@ -3,6 +3,8 @@ import { SocialMedias } from '@/components/socialMedias'
 import { AnimatedDiv } from '@/components/animated-ui/div'
 
 
+export const revalidate = 10
+
 export const metadata = {
     title: 'Página de contatos',
     alternates: {

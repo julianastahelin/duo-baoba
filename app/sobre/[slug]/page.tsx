@@ -10,6 +10,8 @@ import { getPersonalPage } from '@/services/notion'
 import { joinStringsFromArray, stringsToKebabCase } from '@/utils'
 
 
+export const revalidate = 10
+
 interface PageProps {
     params: {
         slug: string
