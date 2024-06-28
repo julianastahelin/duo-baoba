@@ -1,10 +1,10 @@
-import Image from 'next/image'
-
 import { AnimatedDiv, AnimatedFooter, AnimatedH1, AnimatedHeader, AnimatedParagraph, AnimatedSection } from '@/components/animated-ui'
+import { ImageComponent } from '@/components/image'
 import { StyledMarkdown } from '@/components/styledMarkdown'
 import { Video } from '@/components/video'
 import { SocialMedias } from '@/components/socialMedias'
 import { getHomeSections, getSocialMedias } from '@/services/notion'
+
 
 export const revalidate = 10
 
@@ -14,7 +14,9 @@ export default async function Home() {
 
   return (
     <>
-      <AnimatedHeader className="flex flex-col gap-5 p-8 pt-28 md:p-0 md:items-center md:h-screen md:justify-center md:bg-[url('/assets/img/home-header-img.png')] md:bg-cover md:bg-center text-primary-foreground md:text-secondary-foreground text-shadow-sm md:text-shadow">
+      <AnimatedHeader
+        fileName='home-header-img.png'
+        className='flex flex-col gap-5 p-8 pt-28 md:p-0 md:items-center md:h-screen md:justify-center md:bg-cover md:bg-center text-primary-foreground md:text-secondary-foreground text-shadow-sm md:text-shadow'>
         <div className='tracking-[5px] md:z-10'>
           <AnimatedH1 className='flex flex-col gap-2 items-center'>
             <span className='text-3xl md:text-4xl lg:text-6xl font-light'>
@@ -28,8 +30,15 @@ export default async function Home() {
           <AnimatedParagraph className='font-light text-base md:text-xl lg:text-3xl text-center'>· Flauta · Violão ·</AnimatedParagraph>
         </div>
         <AnimatedDiv delay={0.3} duration={0.7} scale={1.1}>
-          <Image src='/assets/img/home-header-img.png' className='w-full min-w-52 pb-16 md:hidden' width={300} height={500} alt='Foto do Duo Baobá - Mayara e David' title='Foto do Duo Baobá - Mayara e David' />
-          </AnimatedDiv>
+          <ImageComponent
+            fileName='home-header-img.png'
+            className='w-full min-w-52 pb-16 md:hidden'
+            width={300}
+            height={500}
+            alt='Foto do Duo Baobá - Mayara e David'
+            title='Foto do Duo Baobá - Mayara e David'
+          />
+        </AnimatedDiv>
       </AnimatedHeader>
       <AnimatedDiv className='bg-tertiary py-5 w-full' delay={1.2} />
 
@@ -48,7 +57,7 @@ export default async function Home() {
                   ? <div className='w-full py-2 md:py-6'>
                     <Video src={`${section.media}?autoplay=1&mute=1`} />
                   </div>
-                  : <Image src={`/assets/img/${section.media}`} alt={`${section.title}`} height={300} width={500} className='py-12' />
+                  : <ImageComponent fileName={section.media} alt={`${section.title}`} height={300} width={500} className='py-12' />
                 : ''
               }
             </AnimatedSection>

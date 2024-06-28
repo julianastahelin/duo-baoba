@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
 import { AnimatedFooter, AnimatedHeader, AnimatedH1, AnimatedParagraph, AnimatedSection, AnimatedDiv } from '@/components/animated-ui'
+import { ImageComponent } from '@/components/image'
 import { PersonalContact } from '@/components/personalContact'
 import { StyledMarkdown } from '@/components/styledMarkdown'
 import { WorkDetails } from '@/components/workDetails'
@@ -59,8 +59,8 @@ export default async function About({ params }: PageProps) {
             <>
                 <div></div>
                 <AnimatedHeader
-                    style={{ '--image-url': `url(/assets/img/${profile.picture})` } as React.CSSProperties}
-                    className={`pt-24 md:pt-20 mb-20 w-full md:min-h-screen bg-primary md:bg-[image:var(--image-url)] md:bg-no-repeat md:bg-cover gap-10 flex flex-col justify-center md:justify-between lg:bg-center items-center
+                    fileName={profile.picture}
+                    className={`pt-24 md:pt-20 mb-20 w-full md:min-h-screen bg-primary md:bg-no-repeat md:bg-[image:var(--image-url)] md:md:bg-cover gap-10 flex flex-col justify-center md:justify-between lg:bg-center items-center
                         ${titleToRight ? 'md:bg-left lg:items-end' : 'md:bg-right lg:items-start'}
                     `}
                 >
@@ -71,7 +71,13 @@ export default async function About({ params }: PageProps) {
                         <AnimatedH1 className='text-4xl tracking-[2px] md:text-6xl lg:text-[80px] font-bold md:tracking-[5px]'>{profile.name}</AnimatedH1>
                         <AnimatedParagraph className='text-base tracking-[1px] md:text-xl lg:text-3xl font-light md:tracking-[4px]'>· {profile.tags.join(' · ')} ·</AnimatedParagraph>
                     </div>
-                    <Image src={`/assets/img/${profile.picture}`} className='w-full min-w-52 md:hidden' width={300} height={500} alt={`Profile picture of ${profile.name}`} />
+                    <ImageComponent
+                        fileName={profile.picture}
+                        className='w-full min-w-52 md:hidden'
+                        width={300}
+                        height={500}
+                        alt={`Profile picture of ${profile.name}`}
+                    />
                     <div className='h-16 w-full bg-tertiary opacity-80 hidden md:flex md:justify-self-end'></div>
                 </AnimatedHeader>
 

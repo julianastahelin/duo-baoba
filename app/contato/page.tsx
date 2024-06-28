@@ -25,8 +25,9 @@ export default async function ContactPage() {
 
     return (
         <main className='pt-16 flex flex-col-reverse sm:flex-row h-screen overflow-hidden'>
-            <AnimatedDiv x={10}
-                style={{ backgroundImage: `url(/assets/img/duo-2.jpg)` }}
+            <AnimatedDiv
+                fileName='duo-2.jpg'
+                x={10}
                 className='h-[60vh] sm:h-[100vh] w-full sm:w-1/2 md:w-2/3 bg-cover bg-center md:bg-right relative'
             ></AnimatedDiv>
             <AnimatedDiv x={-10} delay={0.6} className='flex flex-col items-center justify-center grow text-primary-foreground'>
