@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import {
     Card,
     CardContent,
@@ -14,13 +12,20 @@ import {
 } from '@/components/ui/hover-card'
 import { Event } from '@/types'
 
+import { ImageComponent } from './image'
 import { MetadataCard } from './metadataCard'
 
 
 export function EventCard({ event }: { event: Event }) {
     return (
         <Card className='border-2 border-primary-foreground flex flex-col sm:flex-row items-stretch w-full h-full'>
-            <Image src={`/assets/img/${event.image}`} width={300} height={300} alt='Cartaz do evento' className='w-full sm:w-1/2' />
+            <ImageComponent
+                fileName={event.image}
+                width={300}
+                height={300}
+                alt={`Cartaz do evento ${event.title}`}
+                className='w-full sm:w-1/2'
+            />
 
             <div>
                 <CardHeader>
