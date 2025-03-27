@@ -12,11 +12,11 @@ export async function getHomeSections(): Promise<HomeSection[]> {
 
     return typedHomeSections.results.map((result) => {
         return {
-            title: result.properties.title.title[0].plain_text,
+            title: result.properties.title.title[0]?.plain_text,
             media: result.properties.media.url
                 ? checkAndConvertYoutubeWatchToEmbed(result.properties.media.url)
                 : undefined,
-            content: result.properties.content.rich_text[0].plain_text,
+            content: result.properties.content.rich_text[0]?.plain_text,
         }
     })
 }
